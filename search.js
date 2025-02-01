@@ -1,4 +1,4 @@
-const apiKey = "AIzaSyCooBA52qMDmlPs15fs2-epsI3MhCB4luI";
+const apiKey = "AIzaSyB_hbfD4Z6lC0neHeRqyeUM-D_NSc2sRqA";
 const urlParams = new URLSearchParams(window.location.search);
 const query = urlParams.get("q");
 

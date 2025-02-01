@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+    <link rel="stylesheet" href="video.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+          <a href="index.html"><i id="logo" class="ri-youtube-fill"></i></a>
+          <h3>Youtube</h3>
+        </div>
+        <div class="navbar-center">
+          <form class="search-bar" action="./search.html">
+            <input type="text" placeholder="Search" class="search">
+          <button  class="search-button"><i class="ri-search-line"></i></button>
+          <button type="button" class="voice-btn"><i class="ri-mic-fill"></i></button>
+         </form>
+        </div>
+        <div class="navbar-right">
+          <button class="icon">🔔</button>
+          <button class="icon">👤</button>
+     
+        </div>
+      </nav>
+      <!-- Voice Search Modal -->
+<div id="voice-modal" class="voice-modal">
+    <div class="voice-box">
+      <i class="ri-mic-fill mic-icon"></i>
+      <p id="voice-text">Listening...</p>
+    </div>
+  </div>
+    <div class="video-page">
+        <!-- Video Container -->
+        <div class="video-container">
+            <!-- Video Player -->
+            <iframe
+                id="video-player"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+            ></iframe>
+
+            <!-- Video Info -->
+            <div class="video-info">
+                <h1 id="video-title">Video Title</h1>
+                <div class="video-stats">
+                    <p id="views"></p>
+                    <p id="likes"></p>
+                </div>
+            </div>
+
+            <h2 class="comment">Comments<i class="ri-arrow-drop-down-fill dropdown"></i></h2>
+            
+            <!-- Comments Section -->
+            <div class="comments-section">
+                
+                <div class="comment-list">
+                    
+                    <div class="info"></div>
+                </div>
+             
+                <!-- More comments can be added similarly -->
+            </div>
+        </div>
+
+        <!-- Recommendations Section -->
+        <div class="recommendations">
+            
+            <div class="recommendation-item">
+               
+                <!-- <div class="info"></div> -->
+            </div>
+          
+            <!-- More recommendations can be added similarly -->
+        </div>
+    </div>
+    <script src="video.js"></script>
+</body>
+</html>

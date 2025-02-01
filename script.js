@@ -157,41 +157,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Get current page filename
     let currentPage = window.location.pathname.split("/").pop();
+    
+    // If the URL ends with a slash (e.g., "https://example.com/") then currentPage will be empty.
+    // In that case, default to "index.html".
+    if (!currentPage) {
+        currentPage = "index.html";
+    }
 
-    // Remove active class from all before applying
+    // Remove active class from all menu items
     menuItems.forEach(item => item.classList.remove("active"));
 
-    // Apply styles separately for each page
+    // For index.html, always mark the home menu item as active.
+    // Ensure the href attribute in your HTML matches (e.g., "./index.html" or "/index.html").
     if (currentPage === "index.html") {
-        document.querySelector('.menu-item[href="./index.html"]').classList.add("active");
-        document.querySelector('.menu-item[href="./index.html"]').style.Color = "red";
-    }
-    if (currentPage === "gaming.html") {
-        document.querySelector('.menu-item[href="./gaming.html"]').classList.add("active");
-        document.querySelector('.menu-item[href="./gaming.html"]').style.Color = "red";
-    }
-    if (currentPage === "blog.html") {
-        document.querySelector('.menu-item[href="./blog.html"]').classList.add("active");
-        document.querySelector('.menu-item[href="./blog.html"]').style.Color = "red";
-    }
-    if (currentPage === "sports.html") {
-        document.querySelector('.menu-item[href="./sports.html"]').classList.add("active");
-        document.querySelector('.menu-item[href="./sports.html"]').style.Color = "red";
-    }
-    if (currentPage === "technology.html") {
-        document.querySelector('.menu-item[href="./technology.html"]').classList.add("active");
-        document.querySelector('.menu-item[href="./technology.html"]').style.Color = "red";
-    }
-    if (currentPage === "music.html") {
-        document.querySelector('.menu-item[href="./music.html"]').classList.add("active");
-        document.querySelector('.menu-item[href="./music.html"]').style.Color = "red";
-    }
-    if (currentPage === "news.html") {
-        document.querySelector('.menu-item[href="./news.html"]').classList.add("active");
-        document.querySelector('.menu-item[href="./news.html"]').style.Color = "red";
-    }
-    if (currentPage === "education.html") {
-        document.querySelector('.menu-item[href="./education.html"]').classList.add("active");
-        document.querySelector('.menu-item[href="./education.html"]').style.Color = "red";
+        const homeMenuItem = document.querySelector('.menu-item[href*="index.html"]');
+        if (homeMenuItem) {
+            homeMenuItem.classList.add("active");
+            homeMenuItem.style.color = "red"; // Use lowercase "color"
+        }
+    } else {
+        // For other pages, find the matching menu item by filename and mark it active.
+        const activeMenuItem = document.querySelector(`.menu-item[href*="${currentPage}"]`);
+        if (activeMenuItem) {
+            activeMenuItem.classList.add("active");
+            activeMenuItem.style.color = "red";
+        }
     }
 });
